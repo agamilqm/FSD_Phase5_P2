@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>Insert title here</title>
 </head>
 <body>
+    <h2>Welcome to Phase 3 Project</h2>
+ 	<br/>
+     <span th:text = "${msg}"></span>
 
+    <form action="#" th:action = "@{/signIn}" th:object="${login}" method="post">
+        <label>Emailid</label>
+        <input type="email" th:field="*{emailid}"/><br/>
+        <label>Password</label>
+        <input type="password" th:field = "*{password}"><br/>
+        <label>TypeOfUser</label><br/>
+        <input type="radio" name="typeofuser" value="admin" th:field="*{typeofuser}">Admin 
+        <input type="radio" name="typeofuser" value="customer" th:field="*{typeofuser}">Customer
+        <br/>
+        <input type="submit" value="SignIn">
+    </form>
+    <br>
+    <a th:href="@{/openSignUp}">SignUp</a>
 </body>
 </html>
