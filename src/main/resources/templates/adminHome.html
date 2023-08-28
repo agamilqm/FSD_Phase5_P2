@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>Welcome to Admin Home Page</h2>
+	<span th:text = "${msg}"></span><br>
+	<form action="#" th:action="@{/adminHome}" method="get">
+		 <a th:href="@{/openChangePassword}">Change Password</a> |
+	    <a th:href="@{/addCategoryPage}">Add Category</a> |
+	    <a th:href="@{/viewCategory}">View and Delete Category</a> |
+	    <a th:href="@{/addProductPage}">Add Product</a> |
+   	    <a th:href="@{/viewProduct}">View and Delete Product</a> |
+	    <a th:href="@{/searchAccount}">Search Account</a> |
+	    <a th:href="@{/listAccounts}">List And Delete Accounts</a> |
+	    <a th:href="@{/viewCustomerPurchase}">View And Delete Customers Purchases</a> |
+	    <a th:href="@{/}">Logout</a> |
+	</form>
+</body>
+</html>

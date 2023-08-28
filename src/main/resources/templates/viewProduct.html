@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<body>
+
+<table border="1">
+	<tr>
+		<th>Product Id</th>
+		<th>Product Name</th>
+		<th>Product Quantity</th>
+		<th>Product Category</th>
+		<th>Product Price</th>
+		<th>Product Image</th>
+		<th>Delete Product</th>
+		
+	</tr>
+	<tr th:each="pp:${product}">
+		<td th:text="${pp.pid}"></td>
+		<td th:text="${pp.pname}"></td>
+		<td th:text="${pp.qty}"></td>
+		<td th:text="${pp.categoryid}"></td>
+		<td th:text="${pp.price}"></td>
+		<td>
+		<img th:src="${pp.productimage}" width="50px" height="50px"/>
+		</td>
+		<td>
+			<form th:action="@{/removeProduct}" th:object="${product}" method="post" >
+				<input type = "hidden" th:name = "pid" th:value = "${pp.pid}">
+				<button type="submit">Delete Product</button>
+			</form>
+		</td>
+	</tr>
+</table>
+<span th:text = "${msg}"></span>
+<br/>
+<a th:href="@{/adminHome}">Back</a>
+</body>
+</html>

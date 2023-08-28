@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+	<body>
+	
+		<table border="1">
+			<tr>
+				<th>Order id</th>
+				<th>Order Date</th>
+				<th>Product Id</th>	
+				<th>Customer Id</th>
+				<th>Delete Purchase Order</th>
+			</tr>
+			<tr th:each="oo:${orders}">
+				<td th:text="${oo.orderid}"></td>
+				<td th:text="${oo.orderplaced}"></td>
+				<td th:text="${oo.productid}"></td>
+				<td th:text="${oo.emailid}"></td>
+				<td>
+					<form th:action="@{/deletePurchase}" th:object="${orders}" method="post" >
+						<input type = "hidden" th:name = "orderid" th:value = "${oo.orderid}">
+						<button type="submit">Delete Purchase</button>
+					</form>
+				</td>
+			</tr>
+		</table>
+		<span th:text = "${msg}"></span>
+		<br></br>
+		<a th:href="@{/customerHome}">Back</a>
+		
+	</body>
+</html>
